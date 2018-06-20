@@ -25,12 +25,15 @@ $router->delete("/user/{id:[0-9]+}", "UserController@delete");
  */
 $router->get("/skill/{id:[0-9]+}", "SkillController@show");
 $router->post("/skill", "SkillController@create");
-//$router->put("/skill/{id:[0-9]+}", "SkillController@update");
+$router->put("/skill/{id:[0-9]+}", "SkillController@update");
 $router->delete("/skill/{id:[0-9]+}", "SkillController@delete");
 
 /**
  * User and Skill's routes
  */
+$router->get("/user/{id:[0-9]+}/skill", "UserSkillController@showSkillByUserID");
+$router->get("/user/skill/{type:[A-Za-z0-9]+}", "UserSkillController@showUserByTypeOrNameSkill");
+$router->get("/user/skill/{type:[A-Za-z0-9]+}/{note:[0-9]+}", "UserSkillController@showUserByTypeOrNameSkill");
 
 /**
  * Project's routes
@@ -40,3 +43,8 @@ $router->get("/project/{id:[0-9]+}", "ProjectController@show");
 $router->post("/project", "ProjectController@create");
 $router->put("/project/{id:[0-9]+}", "ProjectController@update");
 $router->delete("/project/{id:[0-9]+}", "ProjectController@delete");
+
+$router->get('/{any:.*}', function ($any)
+{
+    return response()->json('Route not found', 404);
+});

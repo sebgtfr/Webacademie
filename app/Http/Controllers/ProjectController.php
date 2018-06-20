@@ -32,11 +32,11 @@ class ProjectController extends CRUDController
     }
     
     /**
-     * Create User into the database
+     * Create Project into the database
      */
     public function             create(Request $request)
     {
-        if ($this->checkRequestDatas($request) !== true || !UserController::userExist($request->input('userId')))
+        if ($this->checkRequestDatas($request) !== true /*|| !UserController::userExist($request->input('userId'))*/)
         {
             return response()->json('Invalid input', 405);
         }
@@ -49,11 +49,11 @@ class ProjectController extends CRUDController
     }
     
     /**
-     * Update User into the database
+     * Update Project into the database
      */
     public function             update(Request $request, $id)
     {
-        if ($this->checkRequestDatas($request) !== true || !UserController::userExist($request->input('userId')))
+        if ($this->checkRequestDatas($request) !== true /*|| !UserController::userExist($request->input('userId'))*/)
         {
             return response()->json('Invalid input', 405);
         }
@@ -71,7 +71,7 @@ class ProjectController extends CRUDController
     }
     
     /**
-     * Delete User into the database
+     * Delete Project into the database
      */
     public function             delete($id)
     {

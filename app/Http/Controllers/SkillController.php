@@ -35,7 +35,7 @@ class SkillController extends CRUDController
      */
     public function             create(Request $request)
     {
-        if ($this->checkRequestDatas($request) !== true || !UserController::userExist($request->input('userId')))
+        if ($this->checkRequestDatas($request) !== true /*|| !UserController::userExist($request->input('userId'))*/)
         {
             return response()->json('Invalid input', 405);
         }
@@ -52,6 +52,21 @@ class SkillController extends CRUDController
      */
     public function             update(Request $request, $id)
     {
+        if ($this->checkRequestDatas($request) !== true /*|| !UserController::userExist($request->input('userId'))*/)
+        {
+            return response()->json('Invalid input', 405);
+        }
+ 
+        $skill = Skill::find($id);
+        if (empty($skill))
+        {
+            return response()->json("Skill not found", 404);
+        }
+        
+        $this->fillMandatoryModelsFields($skill, $request->all());
+        $skill->save();
+
+        return response()->json('Project updated', 200);
     }
     
     /**
