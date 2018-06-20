@@ -1,3 +1,10 @@
+# INSTALLATION
+
+1) Cloner le projet.
+2) Installer les modules via composer (cmd: composer update)
+3) Créer le fichier .env basé sur le contenu de .env.exemple et remplir les informations de la base de données.
+4) Executé la commande "php artisan migrate" pour installer les tables de la base de données.
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
