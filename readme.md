@@ -1,6 +1,6 @@
 # INSTALLATION
 
-1) Cloner le projet.
+1) Télécharger le projet.
 2) Installer les modules via composer (cmd: composer update)
 3) Créer le fichier .env basé sur le contenu de .env.exemple et remplir les informations de la base de données.
 4) Executé la commande "php artisan migrate" pour installer les tables de la base de données.
